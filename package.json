@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rdripley/firstRepo.git"
+    "url": "git+https://github.com/rdripley/angular.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rdripley/firstRepo/issues"
+    "url": "https://github.com/rdripley/angular/issues"
   },
-  "homepage": "https://github.com/rdripley/firstRepo#readme"
+  "homepage": "https://github.com/rdripley/angular#readme"
 }
