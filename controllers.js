@@ -1,0 +1,15 @@
+var MyApp;
+(function (MyApp) {
+    var MovieListController = (function () {
+        function MovieListController() {
+            this.movies = [
+                { id: 1, title: 'Batman', director: 'Nolan' },
+                { id: 2, title: 'Superman', director: 'Scott' },
+                { id: 3, title: 'Spiderman', director: 'Wells' }
+            ];
+        }
+        return MovieListController;
+    }());
+    angular.module('MyApp').controller("MovieListController", MovieListController);
+})(MyApp || (MyApp = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udHJvbGxlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjb250cm9sbGVycy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxJQUFVLEtBQUssQ0FhZDtBQWJELFdBQVUsS0FBSztJQUNiO1FBR0U7WUFDRSxJQUFJLENBQUMsTUFBTSxHQUFHO2dCQUNaLEVBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxLQUFLLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBQyxPQUFPLEVBQUM7Z0JBQ3pDLEVBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxLQUFLLEVBQUMsVUFBVSxFQUFFLFFBQVEsRUFBQyxPQUFPLEVBQUM7Z0JBQzNDLEVBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxLQUFLLEVBQUMsV0FBVyxFQUFFLFFBQVEsRUFBQyxPQUFPLEVBQUM7YUFDN0MsQ0FBQztRQUNKLENBQUM7UUFDTCwwQkFBQztJQUFELENBQUMsQUFWQyxJQVVEO0lBQ0MsT0FBTyxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQyxVQUFVLENBQUMscUJBQXFCLEVBQUUsbUJBQW1CLENBQUMsQ0FBQztBQUNqRixDQUFDLEVBYlMsS0FBSyxLQUFMLEtBQUssUUFhZCIsInNvdXJjZXNDb250ZW50IjpbIm5hbWVzcGFjZSBNeUFwcCB7XHJcbiAgY2xhc3MgTW92aWVMaXN0Q29udHJvbGxlciB7XHJcbiAgICBwdWJsaWMgbW92aWVzO1xyXG5cclxuICAgIGNvbnN0cnVjdG9yKCkge1xyXG4gICAgICB0aGlzLm1vdmllcyA9IFtcclxuICAgICAgICB7aWQ6IDEsIHRpdGxlOidCYXRtYW4nLCBkaXJlY3RvcjonTm9sYW4nfSxcclxuICAgICAgICB7aWQ6IDIsIHRpdGxlOidTdXBlcm1hbicsIGRpcmVjdG9yOidTY290dCd9LFxyXG4gICAgICAgIHtpZDogMywgdGl0bGU6J1NwaWRlcm1hbicsIGRpcmVjdG9yOidXZWxscyd9XHJcbiAgICAgIF07XHJcbiAgICB9XHJcbn1cclxuICBhbmd1bGFyLm1vZHVsZSgnTXlBcHAnKS5jb250cm9sbGVyKFwiTW92aWVMaXN0Q29udHJvbGxlclwiLCBNb3ZpZUxpc3RDb250cm9sbGVyKTtcclxufVxyXG4iXX0=

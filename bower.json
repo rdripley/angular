@@ -1,0 +1,24 @@
+{
+  "name": "firstrepo",
+  "homepage": "https://github.com/rdripley/firstRepo",
+  "authors": [
+    "Russ Ripley <russellripley@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.17.1",
+    "angular": "^1.6.2"
+  },
+  "devDependencies": {
+    "angular-ui-router": "^0.4.2"
+  }
+}
