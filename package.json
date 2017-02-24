@@ -1,16 +1,17 @@
 {
-  "name": "firstRepo",
+  "name": "angular",
   "version": "1.0.0",
   "description": "",
   "main": "cookies.js",
   "dependencies": {},
   "devDependencies": {
     "@types/angular": "^1.6.6",
+    "angular-ui-router": "^0.4.2",
     "lite-server": "^2.2.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1";
-    "dev": "lite-server";
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
   },
   "repository": {
     "type": "git",
