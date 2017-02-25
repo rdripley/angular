@@ -1,8 +1,9 @@
 declare var angular: any;
+console.log(ng);
 namespace MyApp {
   // Angular Module
-  angular.module('MyApp', ['ui-router']).config(($stateProvider: ng.ui.IStateProvider,
-    $locationProvider: ng.ILocationProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+  angular.module('MyApp', ['ui-router']).config(($stateProvider,
+    $locationProvider, $urlRouterProvider) => {
       $stateProvider
       .state('Home', {
                 url: '/',
