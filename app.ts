@@ -1,28 +1,41 @@
 declare var angular: any;
-console.log(ng);
 namespace MyApp {
-  // Angular Module
-  angular.module('MyApp', ['ui-router']).config(($stateProvider,
-    $locationProvider, $urlRouterProvider) => {
+  angular.module('MyApp', ['ui.router', 'ngResource']).config(
+    ($stateProvider, $locationProvider, $urlRouterProvider) => {
+      // Define routes
       $stateProvider
       .state('Home', {
-                url: '/',
-                templateUrl: "ngApp/page1.html",
-                controller: MyApp.Controllers.Page1Controller,
-                controllerAs: 'controller'
-            })
-            .state('Page1', {
-                url: '/page1',
-                templateUrl: "ngApp/page1.html",
-                controller: MyApp.Controllers.Page1Controller
-            })
-            .state('Page2', {
-                url: '/page2',
-                templateUrl: "ngApp/page2.html",
-                controller: MyApp.Controllers.Page2Controller,
-                controllerAs: 'controller'
-            });
-        $urlRouterProvider.otherwise('/');
-        $locationProvider.html5Mode(true);
+        url: '/',
+        templateUrl: "./home.html",
+      })
+      .state('secret', {
+        url: '/secret',
+        templateUrl: "./secret.html",
+        data: {
+          requiresAuthentication: true
+        }
+      })
+      .state('public', {
+        url: '/public',
+        templateUrl: './public.html'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: './login.html'
+      });
+      // Enable HTML5 navigation
+      $locationProvider.html5Mode(true);
     });
+
+angular.module('MyApp').run(($rootScope, $state, accountService: MyApp.Services.AccountService) => {
+  $rootScope.$on('$stateChangeStart', (e, to) => {
+    // protect non-public views
+    if (to.data && to.data.requiresAuthentication) {
+      if (!accountService.isLoggedIn()) {
+        e.preventDefault();
+        $state.go('login');
+      }
+    }
+  });
+});
 }
