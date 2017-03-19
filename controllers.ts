@@ -1,26 +1,23 @@
 namespace MyApp.Controllers {
 
-  let products = [
-    {id: 1, name: 'Milk', price: 5.00},
-    {id: 2, name: 'Cheese', price: 17.00},
-    {id: 3, name: 'Apples', price: 3.40}
-  ];
+  class FavoriteAnimalController {
 
-  export class ProductListController {
-    public products = products;
+      public openDialog(animalName: string) {
+        this.$mdDialog.show({
+          controller: AnimalDialogController,
+          controllerAs: 'modal',
+          templateUrl: '/dialog.html',
+          clickOutsideToClose: true,
+          locals: { animalName: animalName }
+        })
+      }
 
-    public goToProduct(product) {
-      this.$state.go('Details', { id: product.id});
+      constructor(private $mdDialog) { }
     }
 
-    constructor(private $state) { }
-  }
+    angular.module('MyApp').controller('FavoriteAnimalController', FavoriteAnimalController);
 
-  export class ProductDetailsController {
-    public product;
-
-    constructor($stateParams) {
-      this.product = products.filter((p) => p.id == $stateParams['id'])[0];
-    }
+      class AnimalDialogController {
+        constructor(public animalName: string) { }
+      }
   }
-}

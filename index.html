@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html ng-app="MyApp">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
-    <base href="/" />
-  </head>
-  <body>
-    
-    <ui-view></ui-view>
+    <!-- Required for angular-material-->
+    <link href="./bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+</head>
+<body ng-controller="FavoriteAnimalController as controller">
 
+  <h2>Select your favorite animal</h2>
+
+  <md-button class="md-raised" ng-click="controller.openDialog('Tiger')">Tiger</md-button>
+  <md-button class="md-raised" ng-click="controller.openDialog('Orangutan')">Orangutan</md-button>
+  <md-button class="md-raised" ng-click="controller.openDialog('Cheetah')">Cheetah</md-button>
+
+
+    <!-- Standard angular files -->
     <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
     <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- Required for angular-material -->
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.js"></script>
+
+    <!-- app files -->
     <script src="./app.js"></script>
     <script src="./controllers.js"></script>
 </body>

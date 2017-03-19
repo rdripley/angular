@@ -1,24 +1,12 @@
-namespace MyApp.Services {
+namespace filter {
 
-  export class MovieService {
-    private MovieResource;
+  angular.module('filter', []);
 
-    public listMovies() {
-      return this.MovieResource.query();
-    }
-
-    constructor($resource) {
-      this.MovieResource = $resource('/api/movies');
-    }
+  // set up our home controller to have an array of strings. String values are
+  // used more than once so we have something to filter through.
+  class HomeController {
+    public items = ['hello', 'world', 'this', 'hello', 'should', 'make', 'hello', 'sense'];
   }
 
-  angular.module('MyApp').service('movieService', MovieService);
-
-  export class AccountService {
-    public isLoggedIn() {
-      return false;
-    }
-  }
-
-  angular.module('MyApp').service('accountService', AccountService);
+  angular.module('filter').controller('HomeController', HomeController); 
 }

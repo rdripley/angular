@@ -2,29 +2,28 @@ var MyApp;
 (function (MyApp) {
     var Controllers;
     (function (Controllers) {
-        var products = [
-            { id: 1, name: 'Milk', price: 5.00 },
-            { id: 2, name: 'Cheese', price: 17.00 },
-            { id: 3, name: 'Apples', price: 3.40 }
-        ];
-        var ProductListController = (function () {
-            function ProductListController($state) {
-                this.$state = $state;
-                this.products = products;
+        var FavoriteAnimalController = (function () {
+            function FavoriteAnimalController($mdDialog) {
+                this.$mdDialog = $mdDialog;
             }
-            ProductListController.prototype.goToProduct = function (product) {
-                this.$state.go('Details', { id: product.id });
+            FavoriteAnimalController.prototype.openDialog = function (animalName) {
+                this.$mdDialog.show({
+                    controller: AnimalDialogController,
+                    controllerAs: 'modal',
+                    templateUrl: '/dialog.html',
+                    clickOutsideToClose: true,
+                    locals: { animalName: animalName }
+                });
             };
-            return ProductListController;
+            return FavoriteAnimalController;
         }());
-        Controllers.ProductListController = ProductListController;
-        var ProductDetailsController = (function () {
-            function ProductDetailsController($stateParams) {
-                this.product = products.filter(function (p) { return p.id == $stateParams['id']; })[0];
+        angular.module('MyApp').controller('FavoriteAnimalController', FavoriteAnimalController);
+        var AnimalDialogController = (function () {
+            function AnimalDialogController(animalName) {
+                this.animalName = animalName;
             }
-            return ProductDetailsController;
+            return AnimalDialogController;
         }());
-        Controllers.ProductDetailsController = ProductDetailsController;
     })(Controllers = MyApp.Controllers || (MyApp.Controllers = {}));
 })(MyApp || (MyApp = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udHJvbGxlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjb250cm9sbGVycy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxJQUFVLEtBQUssQ0F5QmQ7QUF6QkQsV0FBVSxLQUFLO0lBQUMsSUFBQSxXQUFXLENBeUIxQjtJQXpCZSxXQUFBLFdBQVc7UUFFekIsSUFBSSxRQUFRLEdBQUc7WUFDYixFQUFDLEVBQUUsRUFBRSxDQUFDLEVBQUUsSUFBSSxFQUFFLE1BQU0sRUFBRSxLQUFLLEVBQUUsSUFBSSxFQUFDO1lBQ2xDLEVBQUMsRUFBRSxFQUFFLENBQUMsRUFBRSxJQUFJLEVBQUUsUUFBUSxFQUFFLEtBQUssRUFBRSxLQUFLLEVBQUM7WUFDckMsRUFBQyxFQUFFLEVBQUUsQ0FBQyxFQUFFLElBQUksRUFBRSxRQUFRLEVBQUUsS0FBSyxFQUFFLElBQUksRUFBQztTQUNyQyxDQUFDO1FBRUY7WUFPRSwrQkFBb0IsTUFBTTtnQkFBTixXQUFNLEdBQU4sTUFBTSxDQUFBO2dCQU5uQixhQUFRLEdBQUcsUUFBUSxDQUFDO1lBTUcsQ0FBQztZQUp4QiwyQ0FBVyxHQUFsQixVQUFtQixPQUFPO2dCQUN4QixJQUFJLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQyxTQUFTLEVBQUUsRUFBRSxFQUFFLEVBQUUsT0FBTyxDQUFDLEVBQUUsRUFBQyxDQUFDLENBQUM7WUFDL0MsQ0FBQztZQUdILDRCQUFDO1FBQUQsQ0FBQyxBQVJELElBUUM7UUFSWSxpQ0FBcUIsd0JBUWpDLENBQUE7UUFFRDtZQUdFLGtDQUFZLFlBQVk7Z0JBQ3RCLElBQUksQ0FBQyxPQUFPLEdBQUcsUUFBUSxDQUFDLE1BQU0sQ0FBQyxVQUFDLENBQUMsSUFBSyxPQUFBLENBQUMsQ0FBQyxFQUFFLElBQUksWUFBWSxDQUFDLElBQUksQ0FBQyxFQUExQixDQUEwQixDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7WUFDdkUsQ0FBQztZQUNILCtCQUFDO1FBQUQsQ0FBQyxBQU5ELElBTUM7UUFOWSxvQ0FBd0IsMkJBTXBDLENBQUE7SUFDSCxDQUFDLEVBekJlLFdBQVcsR0FBWCxpQkFBVyxLQUFYLGlCQUFXLFFBeUIxQjtBQUFELENBQUMsRUF6QlMsS0FBSyxLQUFMLEtBQUssUUF5QmQiLCJzb3VyY2VzQ29udGVudCI6WyJuYW1lc3BhY2UgTXlBcHAuQ29udHJvbGxlcnMge1xyXG5cclxuICBsZXQgcHJvZHVjdHMgPSBbXHJcbiAgICB7aWQ6IDEsIG5hbWU6ICdNaWxrJywgcHJpY2U6IDUuMDB9LFxyXG4gICAge2lkOiAyLCBuYW1lOiAnQ2hlZXNlJywgcHJpY2U6IDE3LjAwfSxcclxuICAgIHtpZDogMywgbmFtZTogJ0FwcGxlcycsIHByaWNlOiAzLjQwfVxyXG4gIF07XHJcblxyXG4gIGV4cG9ydCBjbGFzcyBQcm9kdWN0TGlzdENvbnRyb2xsZXIge1xyXG4gICAgcHVibGljIHByb2R1Y3RzID0gcHJvZHVjdHM7XHJcblxyXG4gICAgcHVibGljIGdvVG9Qcm9kdWN0KHByb2R1Y3QpIHtcclxuICAgICAgdGhpcy4kc3RhdGUuZ28oJ0RldGFpbHMnLCB7IGlkOiBwcm9kdWN0LmlkfSk7XHJcbiAgICB9XHJcblxyXG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSAkc3RhdGUpIHsgfVxyXG4gIH1cclxuXHJcbiAgZXhwb3J0IGNsYXNzIFByb2R1Y3REZXRhaWxzQ29udHJvbGxlciB7XHJcbiAgICBwdWJsaWMgcHJvZHVjdDtcclxuXHJcbiAgICBjb25zdHJ1Y3Rvcigkc3RhdGVQYXJhbXMpIHtcclxuICAgICAgdGhpcy5wcm9kdWN0ID0gcHJvZHVjdHMuZmlsdGVyKChwKSA9PiBwLmlkID09ICRzdGF0ZVBhcmFtc1snaWQnXSlbMF07XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udHJvbGxlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjb250cm9sbGVycy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxJQUFVLEtBQUssQ0FzQlo7QUF0QkgsV0FBVSxLQUFLO0lBQUMsSUFBQSxXQUFXLENBc0J4QjtJQXRCYSxXQUFBLFdBQVc7UUFFekI7WUFZSSxrQ0FBb0IsU0FBUztnQkFBVCxjQUFTLEdBQVQsU0FBUyxDQUFBO1lBQUksQ0FBQztZQVYzQiw2Q0FBVSxHQUFqQixVQUFrQixVQUFrQjtnQkFDbEMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUM7b0JBQ2xCLFVBQVUsRUFBRSxzQkFBc0I7b0JBQ2xDLFlBQVksRUFBRSxPQUFPO29CQUNyQixXQUFXLEVBQUUsY0FBYztvQkFDM0IsbUJBQW1CLEVBQUUsSUFBSTtvQkFDekIsTUFBTSxFQUFFLEVBQUUsVUFBVSxFQUFFLFVBQVUsRUFBRTtpQkFDbkMsQ0FBQyxDQUFBO1lBQ0osQ0FBQztZQUdILCtCQUFDO1FBQUQsQ0FBQyxBQWJILElBYUc7UUFFRCxPQUFPLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDLFVBQVUsQ0FBQywwQkFBMEIsRUFBRSx3QkFBd0IsQ0FBQyxDQUFDO1FBRXZGO1lBQ0UsZ0NBQW1CLFVBQWtCO2dCQUFsQixlQUFVLEdBQVYsVUFBVSxDQUFRO1lBQUksQ0FBQztZQUM1Qyw2QkFBQztRQUFELENBQUMsQUFGRCxJQUVDO0lBQ0wsQ0FBQyxFQXRCYSxXQUFXLEdBQVgsaUJBQVcsS0FBWCxpQkFBVyxRQXNCeEI7QUFBRCxDQUFDLEVBdEJPLEtBQUssS0FBTCxLQUFLLFFBc0JaIiwic291cmNlc0NvbnRlbnQiOlsibmFtZXNwYWNlIE15QXBwLkNvbnRyb2xsZXJzIHtcclxuXHJcbiAgY2xhc3MgRmF2b3JpdGVBbmltYWxDb250cm9sbGVyIHtcclxuXHJcbiAgICAgIHB1YmxpYyBvcGVuRGlhbG9nKGFuaW1hbE5hbWU6IHN0cmluZykge1xyXG4gICAgICAgIHRoaXMuJG1kRGlhbG9nLnNob3coe1xyXG4gICAgICAgICAgY29udHJvbGxlcjogQW5pbWFsRGlhbG9nQ29udHJvbGxlcixcclxuICAgICAgICAgIGNvbnRyb2xsZXJBczogJ21vZGFsJyxcclxuICAgICAgICAgIHRlbXBsYXRlVXJsOiAnL2RpYWxvZy5odG1sJyxcclxuICAgICAgICAgIGNsaWNrT3V0c2lkZVRvQ2xvc2U6IHRydWUsXHJcbiAgICAgICAgICBsb2NhbHM6IHsgYW5pbWFsTmFtZTogYW5pbWFsTmFtZSB9XHJcbiAgICAgICAgfSlcclxuICAgICAgfVxyXG5cclxuICAgICAgY29uc3RydWN0b3IocHJpdmF0ZSAkbWREaWFsb2cpIHsgfVxyXG4gICAgfVxyXG5cclxuICAgIGFuZ3VsYXIubW9kdWxlKCdNeUFwcCcpLmNvbnRyb2xsZXIoJ0Zhdm9yaXRlQW5pbWFsQ29udHJvbGxlcicsIEZhdm9yaXRlQW5pbWFsQ29udHJvbGxlcik7XHJcblxyXG4gICAgICBjbGFzcyBBbmltYWxEaWFsb2dDb250cm9sbGVyIHtcclxuICAgICAgICBjb25zdHJ1Y3RvcihwdWJsaWMgYW5pbWFsTmFtZTogc3RyaW5nKSB7IH1cclxuICAgICAgfVxyXG4gIH1cclxuIl19
